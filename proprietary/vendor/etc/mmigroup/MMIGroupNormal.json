@@ -1,0 +1,180 @@
+{
+  "systemConfig": {
+    "SW_Ver": false,
+    "SS_ver": true,
+    "EFS": false,
+    "RPMB_provisioned": false,
+    "Secureboot": false,
+    "KeyBox_Written": false,
+    "Attestation": false,
+    "Flash": false,
+    "Flash_fw": false
+  },
+  "itemConfig": [
+    {
+      "showName": "VersionInfo",
+      "paramconfig": {
+        "AddInfo": {
+          "eSEPLC": "any",
+          "TPcolor": "any",
+          "CPUID": "any",
+          "TP": "any",
+          "CameraInfo": "any",
+          "BuildNumber": "any",
+          "BaseBandVersion": "any",
+          "KernelVersion": "any",
+          "LCM": "any"
+        }
+      },
+      "P81080": {
+        "paramconfig": {
+          "AddInfo": {
+            "TPcolor": "any",
+            "CPUID": "any",
+            "TP": "any",
+            "CameraInfo": "any",
+            "BuildNumber": "any",
+            "KernelVersion": "any",
+            "LCM": "any"
+          }
+        }
+      }
+    },
+    {
+      "showName": "MainMicToReceiver"
+    },
+    {
+      "showName": "Vibrator",
+      "action": "com.mmigroup.action.VIBRATER",
+      "support": true,
+      "paramconfig": {
+        "is_auto_vibrate": false,
+        "randomVibSupport": false,
+        "shortInterval": [
+          200,
+          200
+        ],
+        "longInterval": [
+          200,
+          1000
+        ],
+        "randomInterval": [
+          6,
+          400,
+          400
+        ]
+      }
+    },
+    {
+      "showName": "KeyPad",
+      "paramconfig": {
+        "keyCode": [
+          "VOLUME_UP",
+          "VOLUME_DOWN"
+        ]
+      }
+    },
+    {
+      "showName": "LeftSpeaker"
+    },
+    {
+      "showName": "LCD",
+      "action": "com.mmigroup.action.LCDUP",
+      "support": true,
+      "automatic": false,
+      "support_autoTest_autopass": false,
+      "paramconfig": {
+        "auto_switch": false,
+        "first_three_delay": 2000,
+        "lcd_pic": [
+          "R=2000",
+          "G=2000",
+          "B=2000",
+          "L255=2000",
+          "L64=2000",
+          "L0=2000",
+          "Transition_Gray=2000"
+        ]
+      }
+    },
+    {
+      "showName": "RightSpeaker"
+    },
+    {
+      "showName": "MainCamera"
+    },
+    {
+      "showName": "FrontCamera"
+    },
+    {
+      "showName": "Receiver"
+    },
+    {
+      "showName": "Backlight"
+    },
+    {
+      "showName": "HeadSet",
+      "paramconfig": {
+        "keyCode": [
+          "HEADSETHOOK"
+        ]
+      }
+    },
+    {
+      "showName": "HsMicToHeadPhone"
+    },
+    {
+      "showName": "FM"
+    },
+    {
+      "showName": "TouchPal"
+    },
+    {
+      "showName": "TpOpenShort"
+    },
+    {
+      "showName": "MainMicToSpeaker1"
+    },
+    {
+      "showName": "Battery"
+    },
+    {
+      "showName": "MainMicToSpeaker2"
+    },
+    {
+      "showName": "SdCard"
+    },
+    {
+      "showName": "SIMCard"
+    },
+    {
+      "showName": "Wlan",
+      "support_background_test": false
+    },
+    {
+      "showName": "Bluetooth"
+    },
+    {
+      "showName": "GPS"
+    },
+    {
+      "showName": "OTG"
+    },
+    {
+      "showName": "Accelerometer",
+      "paramconfig": {
+        "support_calibrate": false,
+        "support_axialresult": false,
+        "support_angle45": true,
+        "support_angleneg45": true,
+        "is_auto_calibrate": false
+      }
+    },
+    {
+      "showName": "Optical"
+    },
+    {
+      "showName": "Sar"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "itemConfig": [
+    {
+      "showName": "VersionInfo"
+    },
+    {
+      "showName": "Vibrator",
+      "paramconfig": {
+        "is_auto_vibrate": false
+      }
+    },
+    {
+      "showName": "KeyPad"
+    },
+    {
+      "showName": "LCD",
+      "action": "com.mmigroup.action.LCDUP",
+      "support": true,
+      "automatic": false,
+      "support_autoTest_autopass": false,
+      "paramconfig": {
+        "auto_switch": false,
+        "first_three_delay": 2000,
+        "lcd_pic": [
+          "R=2000",
+          "G=2000",
+          "B=2000",
+          "L255=2000",
+          "L64=2000",
+          "L0=2000",
+          "Transition_Gray=2000"
+        ]
+      }
+    },
+    {
+      "showName": "MainCamera"
+    },
+    {
+      "showName": "FrontCamera"
+    },
+    {
+      "showName": "Backlight"
+    },
+    {
+      "showName": "LeftSpeaker"
+    },
+    {
+      "showName": "RightSpeaker"
+    },
+    {
+      "showName": "Receiver"
+    },
+    {
+      "showName": "MainMicToReceiver"
+    },
+    {
+      "showName": "MainMicToSpeaker1"
+    },
+    {
+      "showName": "MainMicToSpeaker2"
+    },
+    {
+      "showName": "HeadSet",
+      "paramconfig": {
+        "keyCode": [
+          "HEADSETHOOK"
+        ]
+      }
+    },
+    {
+      "showName": "HsMicToHeadPhone"
+    },
+    {
+      "showName": "FM"
+    },
+    {
+      "showName": "TouchPal"
+    },
+    {
+      "showName": "TpOpenShort"
+    },
+    {
+      "showName": "Battery"
+    },
+    {
+      "showName": "SdCard"
+    },
+    {
+      "showName": "SIMCard"
+    },
+    {
+      "showName": "Wlan"
+    },
+    {
+      "showName": "Bluetooth"
+    },
+    {
+      "showName": "GPS"
+    },
+    {
+      "showName": "OTG"
+    },
+    {
+      "showName": "Accelerometer",
+      "paramconfig": {
+        "support_calibrate": true,
+        "support_axialresult": true,
+        "support_angle45": true,
+        "support_angleneg45": true,
+        "is_auto_calibrate": false
+      }
+    },
+    {
+      "showName": "Optical"
+    },
+    {
+      "showName": "Sar"
+    }
+  ]
+}

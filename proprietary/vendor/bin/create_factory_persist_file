@@ -1,0 +1,111 @@
+#! /vendor/bin/sh
+
+factoryDir=/persist/factory
+efsDir=/mnt/vendor/efs
+api_level=`getprop ro.product.first_api_level`
+device=`getprop ro.product.vendor.device`
+ato_version=`getprop ro.mg_factory_mode`
+
+if [ "${api_level}" -ge "28" ];then
+    factoryDir=/mnt/vendor/persist/factory
+fi
+if [ "${ato_version}" -eq "0" ];then
+    efsDir=/efs
+fi
+
+customNvDir=${factoryDir}/customNv
+if [ ! -d "${customNvDir}" ];then
+    mkdir -p ${customNvDir}
+fi
+
+if [ ! -f "${customNvDir}/CUSTOM_PRODUCT_INFO" ];then
+    dd if=/dev/zero of=${customNvDir}/CUSTOM_PRODUCT_INFO bs=1024 count=4
+fi
+
+if [ ! -f "${customNvDir}/CUSTOM_FACTORY_FLAG" ];then
+    dd if=/dev/zero of=${customNvDir}/CUSTOM_FACTORY_FLAG bs=1024 count=4
+fi
+
+if [ ! -f "${customNvDir}/USB_PORT_CTR" ];then
+    dd if=/dev/zero of=${customNvDir}/USB_PORT_CTR bs=1024 count=4
+fi
+
+chown -R system:system ${factoryDir}
+chown -R system:system ${customNvDir}
+chmod -R 0770 ${customNvDir}
+chown system:system ${customNvDir}/CUSTOM_PRODUCT_INFO
+chmod 0770 ${customNvDir}/CUSTOM_PRODUCT_INFO
+chown system:system ${customNvDir}/CUSTOM_FACTORY_FLAG
+chmod 0770 ${customNvDir}/CUSTOM_FACTORY_FLAG
+chown system:system ${customNvDir}/USB_PORT_CTR
+chmod 0770 ${customNvDir}/USB_PORT_CTR
+
+if [ ! -d "${efsDir}/wifi/" ];then
+    mkdir -p ${efsDir}/wifi/
+fi
+
+if [ ! -d "${efsDir}/bluetooth/" ];then
+    mkdir -p ${efsDir}/bluetooth/
+fi
+
+if [ ! -f "${efsDir}/wifi/.mac.info" ];then
+    touch ${efsDir}/wifi/.mac.info
+    echo "00:00:00:00:00:00" > ${efsDir}/wifi/.mac.info
+fi
+
+if [ ! -f "${efsDir}/bluetooth/bt_addr" ];then
+    touch ${efsDir}/bluetooth/bt_addr
+    echo "00:00:00:00:00:00" > ${efsDir}/bluetooth/bt_addr
+fi
+chmod -R 0777 ${efsDir}/wifi/
+chown -R system:system ${efsDir}/wifi/
+
+chmod -R 0777 ${efsDir}/bluetooth/
+chown -R system:system ${efsDir}/bluetooth/
+
+if [ ! -d "${efsDir}/imei/" ];then
+    mkdir -p ${efsDir}/imei/
+
+fi
+if [ ! -f "${efsDir}/imei/prodcode.dat" ];then
+    touch ${efsDir}/imei/prodcode.dat
+    echo "00000000" > ${efsDir}/imei/prodcode.dat
+fi
+if [ ! -f "${efsDir}/imei/mps_code.dat" ];then
+    touch ${efsDir}/imei/mps_code.dat
+    echo "00000000" > ${efsDir}/imei/mps_code.dat
+fi
+
+chmod -R 0777 ${efsDir}/imei/
+chown -R system:system ${efsDir}/imei/
+
+
+if [ ! -d "${efsDir}/FactoryApp/" ];then
+    mkdir -p ${efsDir}/FactoryApp/
+fi
+if [ ! -f "${efsDir}/FactoryApp/serial_no" ];then
+    touch ${efsDir}/FactoryApp/serial_no
+    echo "00000000" > ${efsDir}/FactoryApp/serial_no
+fi
+if [ ! -f "${efsDir}/FactoryApp/control_no" ];then
+    touch ${efsDir}/FactoryApp/control_no
+    echo "00000000" > ${efsDir}/FactoryApp/control_no
+fi
+if [ ! -f "${efsDir}/FactoryApp/hw_ver" ];then
+    touch ${efsDir}/FactoryApp/hw_ver
+    echo "00000000" > ${efsDir}/FactoryApp/hw_ver
+fi
+
+if [ ! -f "${efsDir}/FactoryApp/copr" ];then
+    touch ${efsDir}/FactoryApp/copr
+    echo "NONE" > ${efsDir}/FactoryApp/copr
+fi
+if [ ! -f "${efsDir}/FactoryApp/cal_date" ];then
+    touch ${efsDir}/FactoryApp/cal_date
+    echo "00000000" > ${efsDir}/FactoryApp/cal_date
+fi
+
+chmod -R 0777 ${efsDir}/FactoryApp/
+chown -R system:system ${efsDir}/FactoryApp/
+
+
